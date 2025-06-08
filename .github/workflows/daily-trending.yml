@@ -30,11 +30,11 @@ jobs:
     - name: Run trending repos script
       env:
         RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
-        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
-        TRENDING_PERIOD: daily
-        TRENDING_LANGUAGE: ""
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        RECIPIENT_EMAIL: ${{ vars.RECIPIENT_EMAIL }}
+        SENDER_EMAIL: ${{ vars.SENDER_EMAIL }}
+        TRENDING_PERIOD: ${{ vars.TRENDING_PERIOD || 'daily' }}
+        TRENDING_LANGUAGE: ${{ vars.TRENDING_LANGUAGE || '' }}
       run: uv run python main.py
       
     - name: Log completion

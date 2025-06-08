@@ -17,7 +17,7 @@ class Config:
     SENDER_EMAIL: str = os.getenv("SENDER_EMAIL", "GitHub Trending <onboarding@resend.dev>")
     
     # GitHub settings
-    GITHUB_TOKEN: Optional[str] = os.getenv("GITHUB_TOKEN")
+    GITHUB_TOKEN: Optional[str] = os.getenv("GH_TOKEN") or os.getenv("GITHUB_TOKEN")
     
     # Trending settings
     TRENDING_PERIOD: str = os.getenv("TRENDING_PERIOD", "daily")  # daily, weekly, monthly
