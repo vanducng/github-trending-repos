@@ -44,7 +44,7 @@ async def main():
         
         # Send email
         logger.info(f"📧 Sending email to {Config.RECIPIENT_EMAIL}...")
-        success = await email_sender.send_trending_summary(summary, Config.RECIPIENT_EMAIL)
+        success = await email_sender.send_trending_summary(summary, Config.RECIPIENT_EMAIL, Config.SENDER_EMAIL)
         
         if success:
             logger.info("✅ Email sent successfully!")

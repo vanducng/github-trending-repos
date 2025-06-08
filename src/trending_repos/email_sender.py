@@ -16,12 +16,13 @@ class EmailSender:
         """
         resend.api_key = api_key
     
-    async def send_trending_summary(self, summary: Dict[str, Any], recipient_email: str) -> bool:
+    async def send_trending_summary(self, summary: Dict[str, Any], recipient_email: str, sender_email: str = "GitHub Trending <onboarding@resend.dev>") -> bool:
         """Send trending repositories summary email.
         
         Args:
             summary: Repository summary data
             recipient_email: Email address to send to
+            sender_email: Sender email address (with optional display name)
             
         Returns:
             True if email sent successfully, False otherwise
@@ -33,7 +34,7 @@ class EmailSender:
             
             # Send email
             params = {
-                "from": "GitHub Trending <onboarding@resend.dev>",  # Using Resend's test domain
+                "from": sender_email,
                 "to": [recipient_email],
                 "subject": f"📈 GitHub Trending Repos - {summary['date']}",
                 "html": html_content,

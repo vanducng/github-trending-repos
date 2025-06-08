@@ -32,6 +32,7 @@ jobs:
         RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
         TRENDING_PERIOD: daily
         TRENDING_LANGUAGE: ""
       run: uv run python main.py

@@ -14,6 +14,7 @@ class Config:
     # Email settings
     RESEND_API_KEY: str = os.getenv("RESEND_API_KEY", "")
     RECIPIENT_EMAIL: str = os.getenv("RECIPIENT_EMAIL", "me@vanducng.dev")
+    SENDER_EMAIL: str = os.getenv("SENDER_EMAIL", "GitHub Trending <onboarding@resend.dev>")
     
     # GitHub settings
     GITHUB_TOKEN: Optional[str] = os.getenv("GITHUB_TOKEN")
