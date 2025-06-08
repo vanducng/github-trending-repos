@@ -33,7 +33,7 @@ class EmailSender:
             
             # Send email
             params = {
-                "from": "GitHub Trending <noreply@yourdomain.com>",  # You'll need to configure this
+                "from": "GitHub Trending <onboarding@resend.dev>",  # Using Resend's test domain
                 "to": [recipient_email],
                 "subject": f"📈 GitHub Trending Repos - {summary['date']}",
                 "html": html_content,

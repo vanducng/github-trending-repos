@@ -1,6 +1,6 @@
 """Main entry point for the trending repos application."""
 
-from src.trending_repos.main import main
+from src.trending_repos.main import sync_main
 
 if __name__ == "__main__":
-    main()
+    sync_main()
