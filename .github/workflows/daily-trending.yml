@@ -1,0 +1,40 @@
+name: Daily GitHub Trending Repos
+
+on:
+  schedule:
+    # Run daily at 7:00 AM GMT+7 (midnight UTC)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  send-trending-summary:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+        
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+      with:
+        version: "latest"
+        
+    - name: Install dependencies
+      run: uv sync
+      
+    - name: Run trending repos script
+      env:
+        RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        TRENDING_PERIOD: daily
+        TRENDING_LANGUAGE: ""
+      run: uv run python main.py
+      
+    - name: Log completion
+      run: echo "✅ Daily trending repos summary sent successfully"
