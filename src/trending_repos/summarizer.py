@@ -78,7 +78,7 @@ class RepoSummarizer:
                     created_date = "Unknown"
             
             # Format description
-            description = repo.get("description", "No description available")
+            description = repo.get("description") or "No description available"
             if len(description) > 150:
                 description = description[:147] + "..."
             
