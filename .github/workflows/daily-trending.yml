@@ -1,10 +1,9 @@
 name: Daily GitHub Trending Repos
 
 on:
-  schedule:
-    # Run daily at 7:00 AM GMT+7 (midnight UTC)
-    - cron: '0 0 * * *'
-  workflow_dispatch: # Allow manual trigger
+  # schedule:
+  #   - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   send-trending-summary:
